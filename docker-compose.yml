@@ -1,0 +1,17 @@
+services:
+  app:
+    image: 'buy-sell-trade-web:latest'
+    build:
+      context: .
+    container_name: 'app'
+    depends_on:
+      - database
+
+  database:
+    image: 'postgres:16.1'
+    ports:
+      - '15432:5432'
+    environment:
+      - 'POSTGRES_USER=buy_sell_trade_admin'
+      - 'POSTGRES_DB=buy_sell_trade'
+      - 'POSTGRES_PASSWORD=password'
