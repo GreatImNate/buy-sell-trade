@@ -1,10 +1,19 @@
 package com.greatimnate.buyselltrade;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
-public record Listing(@Id @GeneratedValue(strategy = GenerationType.AUTO) long id, String content) {
+public class Listing {
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    private double price;
+
+    @OneToOne
+    private Item item;
+
+
 }
