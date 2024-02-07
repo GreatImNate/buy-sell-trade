@@ -1,10 +1,9 @@
 package com.greatimnate.buyselltrade;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -16,5 +15,13 @@ public class Account {
     private Long id;
 
     private String username;
+
+    private long reputation;
+
+    @OneToMany
+    private List<Listing> listings;
+
+    @OneToMany
+    private List<Item> items;
 
 }
